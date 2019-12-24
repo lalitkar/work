@@ -1,0 +1,384 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Dec 23 19:27:14 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: scott
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> sys timestamp
+SP2-0734: unknown command beginning "sys timest..." - rest of line ignored.
+SQL> select sys timestamp from dual
+  2
+SQL> select systimestamp from dual
+  2
+SQL> select sys.timestamp from dual
+  2
+SQL> select systimestamp from dual;
+
+SYSTIMESTAMP
+---------------------------------------------------------------------------
+23-DEC-19 08.15.48.575000 PM -08:00
+
+SQL> select substr('helloworld',1,5) from dual;
+
+SUBST
+-----
+hello
+
+SQL> ed
+SP2-0110: Cannot create save file "afiedt.buf"
+SQL> select trim('h'from'helloworld') from dual;
+
+TRIM('H'F
+---------
+elloworld
+
+SQL> select trim('h'from'helloworld') from dual;
+
+TRIM('H'F
+---------
+elloworld
+
+SQL> select lpad(ename,10,'*') from emp
+  2
+SQL> select lpad(ename,10,'*') from emp;
+
+LPAD(ENAME
+----------
+*****SMITH
+*****ALLEN
+******WARD
+*****JONES
+****MARTIN
+*****BLAKE
+*****CLARK
+*****SCOTT
+******KING
+****TURNER
+*****ADAMS
+
+LPAD(ENAME
+----------
+*****JAMES
+******FORD
+****MILLER
+
+14 rows selected.
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ENAME
+----------
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> select sal a,ename b from emp
+  2  where comm is not null
+  3  or sal>1500
+  4  order by a;
+
+         A B
+---------- ----------
+      1250 WARD
+      1250 MARTIN
+      1500 TURNER
+      1600 ALLEN
+      2450 CLARK
+      2850 BLAKE
+      2975 JONES
+      3000 SCOTT
+      3000 FORD
+      5000 KING
+
+10 rows selected.
+
+SQL> select sal,deptno,ename from emp
+  2  where comm is not null
+  3  or sal>1500
+  4  order by sal desc,deptno;
+
+       SAL     DEPTNO ENAME
+---------- ---------- ----------
+      5000         10 KING
+      3000         20 SCOTT
+      3000         20 FORD
+      2975         20 JONES
+      2850         30 BLAKE
+      2450         10 CLARK
+      1600         30 ALLEN
+      1500         30 TURNER
+      1250         30 WARD
+      1250         30 MARTIN
+
+10 rows selected.
+
+SQL> select e.deptno,e.ename,d.deptno from emp e,dept d
+  2  where.deptno(+)=d.deptno;
+where.deptno(+)=d.deptno
+     *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> select e.deptno,e.ename,d.deptno from emp e,dept d
+  2  where deptno(+)=d.deptno;
+where deptno(+)=d.deptno
+      *
+ERROR at line 2:
+ORA-00918: column ambiguously defined
+
+
+SQL> select e.last_name,e.department_id,d.department_name
+  2  from employee e
+  3  full outer join department d
+  4  on(e.department_id=d.department_id);
+full outer join department d
+                *
+ERROR at line 3:
+ORA-00942: table or view does not exist
+
+
+SQL> select * emp;
+select * emp
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> set linesize 120;
+SQL> set pagesize 120;
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> select max(sal),deptno
+  2  from emp
+  3  group by .
+  4  jksda;
+group by .
+         *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> select distinct job from emp;
+
+JOB
+---------
+CLERK
+SALESMAN
+PRESIDENT
+MANAGER
+ANALYST
+
+SQL> select sum(sal) from emp;
+
+  SUM(SAL)
+----------
+     29025
+
+SQL> select max(sal),min(sal),avg(sal) from emp;
+
+  MAX(SAL)   MIN(SAL)   AVG(SAL)
+---------- ---------- ----------
+      5000        800 2073.21429
+
+SQL> select max(sal) from emp
+  2  where job="salesman";
+where job="salesman"
+          *
+ERROR at line 2:
+ORA-00904: "salesman": invalid identifier
+
+
+SQL> select max(sal) from emp
+  2  where job="SALESMAN";
+where job="SALESMAN"
+          *
+ERROR at line 2:
+ORA-00904: "SALESMAN": invalid identifier
+
+
+SQL> select max(sal) from emp
+  2  where job='SALSMAN';
+
+  MAX(SAL)
+----------
+
+
+SQL> select max(sal) from emp
+  2  where job="SALESMAN";
+where job="SALESMAN"
+          *
+ERROR at line 2:
+ORA-00904: "SALESMAN": invalid identifier
+
+
+SQL> select max(sal) from emp
+  2  where job='SALESMAN';
+
+  MAX(SAL)
+----------
+      1600
+
+SQL> select avg(sal) from emp
+  2  where deptno='20';
+
+  AVG(SAL)
+----------
+      2175
+
+SQL> select count(distinct deptno) from emp;
+
+COUNT(DISTINCTDEPTNO)
+---------------------
+                    3
+
+SQL> select count(distinct empid),deptno from emp
+  2  group by deptno;
+select count(distinct empid),deptno from emp
+                      *
+ERROR at line 1:
+ORA-00904: "EMPID": invalid identifier
+
+
+SQL> select count(distinct empid),deptno from emp
+  2  group by deptno;
+select count(distinct empid),deptno from emp
+                      *
+ERROR at line 1:
+ORA-00904: "EMPID": invalid identifier
+
+
+SQL> select count(distinct empno),deptno from emp
+  2  group by deptno;
+
+COUNT(DISTINCTEMPNO)     DEPTNO
+-------------------- ----------
+                   6         30
+                   5         20
+                   3         10
+
+SQL> select count(empno) from emp
+  2  where job='MANAGER';
+
+COUNT(EMPNO)
+------------
+           3
+
+SQL> select count(distinct empno) from emp
+  2  where job='MANAGER';
+
+COUNT(DISTINCTEMPNO)
+--------------------
+                   3
