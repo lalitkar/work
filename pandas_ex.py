@@ -1,0 +1,31 @@
+import pandas as pd
+df=pd.read_csv('dbdump.csv')
+print(df['ip'])
+df2=df['id'].describe()
+print(df2)
+df4=df['id'].mean()
+print("df4=",df4)
+df5=df.head(5)
+print(df5)
+df8=df['pics'].value_counts()
+print('df8=',df8)
+import matplotlib.pyplot as plt
+df8.plot()
+plt.show()
+df8.plot.bar()
+plt.savefig('mygraph.png')
+writer=pd.ExcelWriter('Report.xlsx',engine='xlsxwriter')
+df8.to_excel(writer,sheet_name='DATA')
+wb=writer.book
+ws=wb.add_worksheet('GRAPH')
+ws.insert_image('B2','mygraph.png')
+writer.close()
+df9=df[df['id']>10]
+print(df9)
+df10=df[df['pics'].str.endswith('jpg')]
+print(df10)
+df11=df.groupby(['pics']).count()
+print(df11)
+df12=df.iloc[1,1]
+df13=df.iloc[1]
+print(df12,df13)
