@@ -1,0 +1,34 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 68D6-E9ED
+
+ Directory of C:\Users\lab365\Desktop\python\bin
+
+01/07/2020  09:52 PM    <DIR>          .
+01/07/2020  09:52 PM    <DIR>          ..
+01/07/2020  09:51 PM                 0 cmd_out.txt
+01/07/2020  08:16 PM               595 comprehentions.py
+01/06/2020  03:16 AM               191 dictionary.py
+01/07/2020  12:44 AM               148 eval.py
+01/07/2020  01:37 AM               665 fileop.py
+01/06/2020  10:46 PM               780 for.py
+01/07/2020  08:43 PM               154 func2.py
+01/07/2020  08:56 PM               331 func3.py
+01/07/2020  08:57 PM                56 func4.py
+01/07/2020  09:52 PM               471 FUNC5.py
+01/07/2020  08:26 PM               304 funcs.py
+01/06/2020  09:01 PM               394 if_ex.py
+01/06/2020  02:42 AM               337 list.py
+01/07/2020  02:04 AM                18 log_report.csv
+01/07/2020  02:04 AM                16 log_report.txt
+01/05/2020  10:26 PM               303 numex.py
+01/07/2020  01:47 AM                24 out1.txt
+01/07/2020  01:27 AM                 0 out2.csv
+01/07/2020  02:15 AM               436 process_log.py
+01/06/2020  03:31 AM               138 set.py
+01/06/2020  12:52 AM               623 str_ex.py
+01/05/2020  10:37 PM               151 test.py
+01/06/2020  02:56 AM               131 tuple.py
+01/06/2020  11:22 PM               473 while.py
+              24 File(s)          6,739 bytes
+               2 Dir(s)  818,210,725,888 bytes free
+IP,DATE,PICS,URL
